@@ -103,6 +103,7 @@
                     $('#self-bar').html(selfBar);
                     $('.self-blood-bar').attr('src','./images/blood-line.png').removeClass('animated flash');
                     clearInterval(timerId);
+                    $('.mobile').css('display','block');
                 }
                 $('#self-bar-bg').width(selfWidth);
                 $('#self-bar').html(selfBar);
@@ -113,6 +114,7 @@
                 if(selfBar<=0){
                     selfBar = ' ';
                     $('#self-bar').html(selfBar);
+                    $('.mobile').css('display','block');
                     clearInterval(timerid1);
                 }
                 console.log(selfBar);
