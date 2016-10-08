@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0"/>
+    <title>正在游戏...</title>
+    <link rel="stylesheet" href="./css/animate.min.css"/>
+    <link rel="stylesheet" href="./css/base.css"/>
+    <link rel="stylesheet" href="./css/index.css"/>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="bg">
+                <img class="car-bg" src="./images/car-bg.png"/>
+                <div class="boss-kill">
+                </div>
+            </div>
+            <div class="car">
+                <img class="car-car"  src="./images/car.png"/>
+            </div>
+            <div class="blood">
+                <img class="boss-blood" src="./images/blood.png" />
+                <span class="blood-bar">100</span>
+            </div>
+            <div class="self-blood">
+                <img class="self-blood-bar"  src="./images/blood-line.png"/>
+                <p id="self-bar-bg">
+                    <span id="self-bar">400</span>
+                </p>
+            </div>
+            <ul class="kills">
+                <li>
+                    <a href="javascript:;">
+                        <img src="./images/icon1.png" />
+                    </a>
+                    <span>x</span>
+                    <span class="num1">0</span>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="./images/icon1.png"/>
+                    </a>
+                    <span>x</span>
+                    <span class="num2">1</span>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <img src="./images/icon1.png" />
+                    </a>
+                    <span>x</span>
+                    <span class="num3">3</span>
+                </li>
+            </ul>
+        </header>
+        <div class="main">
+            <div class="main-title">
+                <h3>第一关</h3>
+                <p>以下哪个品牌在2013年，2014年连续两年荣获J.D.Po wer IQS 成.绩自主品牌 No.1?</p>
+            </div>
+            <div class="main-main">
+                <ul >
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./images/car1_04.png" alt=""/>
+                            <span></span>
+                            <img class="yes" src="./images/true_04.png" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./images/car2_04.png" alt=""/>
+                            <img class="yes" src="./images/true_04.png" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:;">
+                            <img src="./images/car3_04.png" alt=""/>
+                            <img class="yes" src="./images/true_04.png" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="mobile">
+            <span>游戏结束</span>
+        </div>
+    </div>
+    <script src="./js/jquery-1.12.4.js"></script>
+    <script>
+        $(function () {
+            /*自身受伤*/
+            var selfWidth = $('#self-bar-bg').width();
+            var selfBar = $('#self-bar').html();
+            var timerId = setInterval(function () {
+                var selfBarWidth = parseInt(Math.random()*15+20);
+                var selfSubWidth = parseInt(selfBarWidth / selfBar * selfWidth);
+                $('.self-blood-bar').attr('src','./images/blood-bg.png').addClass('animated flash');
+                selfWidth = selfWidth-selfSubWidth;
+                selfBar = selfBar - selfBarWidth;
+                if(selfWidth <= 0){
+                    selfBar = ' ';
+                    $('#self-bar').html(selfBar);
+                    $('.self-blood-bar').attr('src','./images/blood-line.png').removeClass('animated flash');
+                    clearInterval(timerId);
+                }
+                $('#self-bar-bg').width(selfWidth);
+                $('#self-bar').html(selfBar);
+
+            },2000);
+            var timerid1 = setInterval(function () {
+                $('.self-blood-bar').attr('src','./images/blood-line.png').removeClass('animated flash');
+                if(selfBar<=0){
+                    selfBar = ' ';
+                    $('#self-bar').html(selfBar);
+                    clearInterval(timerid1);
+                }
+                console.log(selfBar);
+            },1910)
+            /*选择答案*/
+            $('.main-main>ul>li').click(function () {
+                $(this).children('a').children('.yes').css('display','block').parent().parent().siblings().children('a').children('.yes').css('display','none');
+                $('.boss-kill').css('display','block').addClass('animated flash');
+                $('.car-car').addClass('animated bounce');
+                setTimeout(function () {
+                    $('.boss-kill').css('display','none').removeClass('animated flash');
+                    $('.car-car').removeClass('animated bounce');
+                },1000);
+                /*获取boss血量*/
+                var bloodBar = $('.blood-bar').html();
+                bloodBar = bloodBar - parseInt(Math.random()*15+5);
+                $('.blood-bar').html(bloodBar);
+                if(bloodBar <= 0){
+                    /*杀死boss*/
+                    $('.blood-bar').html(' ');
+                    $('.mobile').css('display','block');
+                    clearInterval(timerId);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

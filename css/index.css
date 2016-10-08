@@ -1,0 +1,235 @@
+@charset "utf-8";
+/*body*/
+/*主体*/
+.container {
+  width: 100%;
+  max-width: 750px;
+  min-width: 300px;
+  margin: 0 auto;
+  background-image: url("../images/bg.png");
+  background-size: cover;
+}
+/*头部*/
+.header {
+  width: 100%;
+  background-image: url("../images/car-bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.header > .bg {
+  max-height: 400px;
+  min-height: 120px;
+}
+.header > .bg > .car-bg {
+  width: 100%;
+  font-size: 0;
+}
+.header > .bg > .boss-kill {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 200px;
+  -webkit-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  -o-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  z-index: 100;
+  opacity: 0.8;
+  background-image: url("../images/boss_02.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  display: none;
+}
+.header > .car {
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.header > .car > .car-car {
+  width: 100%;
+}
+.header > .blood {
+  width: 25%;
+  position: absolute;
+  top: 5%;
+  right: 2%;
+  z-index: 999;
+}
+.header > .blood > .boss-blood {
+  width: 100%;
+  text-align: center;
+}
+.header > .blood > .blood-bar {
+  text-align: center;
+  position: absolute;
+  width: 22px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  font-size: 12px;
+  font-weight: 700;
+  color: #FFF;
+}
+.header > .self-blood {
+  width: 48%;
+  position: absolute;
+  bottom: 5%;
+  left: 2%;
+  z-index: 999;
+}
+.header > .self-blood > .self-blood-bar {
+  width: 100%;
+}
+.header > .self-blood > .self-blood-bar1 {
+  width: 100%;
+  display: none;
+}
+.header > .self-blood > p {
+  width: 83%;
+  height: 50%;
+  position: absolute;
+  background-image: url('../images/blood-line-bg_03.png');
+  top: 18%;
+  left: 8%;
+  border-radius: 10px;
+  font-size: 12px;
+}
+.header > .self-blood > p > span {
+  font-size: 12px;
+  color: #ccc;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.header > .kills {
+  width: 45%;
+  position: absolute;
+  bottom: 6%;
+  right: 1%;
+  z-index: 999;
+}
+.header > .kills > li {
+  width: 33.3333%;
+  float: left;
+}
+.header > .kills > li > a {
+  display: inline-block;
+  width: 50%;
+  vertical-align: middle;
+}
+.header > .kills > li > a > img {
+  width: 100%;
+}
+.header > .kills > li > span {
+  font-size: 12px;
+  color: #000;
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+.header > .kills > li:last-child {
+  margin-right: 0;
+}
+/*主体*/
+.main {
+  width: 100%;
+  max-width: 750px;
+  min-width: 300px;
+}
+.main > .main-title {
+  padding: 0 5%;
+}
+.main > .main-title > h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #cc0000;
+  padding-left: 30px;
+  position: relative;
+}
+.main > .main-title > h3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 32px;
+  max-height: 37px;
+  min-width: 16px;
+  min-height: 18px;
+  background-image: url("../images/arraw_04.png");
+  background-size: 100%;
+  vertical-align: middle;
+}
+.main > .main-title > p {
+  font-size: 14px;
+  color: #333333;
+}
+.main > .main-main {
+  padding: 0 5%;
+  width: 100%;
+  max-width: 750px;
+  min-width: 300px;
+}
+.main > .main-main > ul {
+  width: 100%;
+}
+.main > .main-main > ul > li {
+  width: 100%;
+}
+.main > .main-main > ul > li > a {
+  display: block;
+  width: 70%;
+  margin: 5px auto;
+  position: relative;
+  padding: 2px;
+  background-color: #ffffff;
+}
+.main > .main-main > ul > li > a > img {
+  width: 100%;
+  display: block;
+}
+.main > .main-main > ul > li > a > .yes {
+  width: 5%;
+  position: absolute;
+  bottom: 2px;
+  right: 1%;
+  display: none;
+}
+.main > .main-main > ul > li > a:last-child {
+  margin-bottom: 0;
+}
+.mobile {
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+.mobile > span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30%;
+  height: 50px;
+  background-color: #FFF;
+  color: #ccc;
+  font-size: 16px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 10px;
+}
